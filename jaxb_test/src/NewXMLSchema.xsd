@@ -1,0 +1,40 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.sony.net/d-cinema/sms/2007b" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SMSMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:byte" name="Id"/>
+              <xs:element type="xs:string" name="Type"/>
+              <xs:element type="xs:long" name="Timestamp"/>
+              <xs:element type="xs:string" name="Source"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MessageBody">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RAIDStatusDetail">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="RAIDStatus"/>
+                    <xs:element name="HDDStatus" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Name"/>
+                          <xs:element type="xs:string" name="IsSpareSlot"/>
+                          <xs:element type="xs:string" name="Status"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
